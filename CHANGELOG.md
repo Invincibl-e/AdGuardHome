@@ -30,10 +30,14 @@ NOTE: Add new changes BELOW THIS COMMENT.
 ### Changed
 
 - Frontend rewritten in TypeScript.
+- The `systemd`-based service now uses `journal` for logging by default.  It
+  also doesn't create the `/var/log/` directory anymore ([#7053]).
 
 ### Deprecated
 
 - Node 18 support, Node 20 will be required in future releases.
+
+[#7053]: https://github.com/AdguardTeam/AdGuardHome/issues/7053
 
 <!--
 NOTE: Add new changes ABOVE THIS COMMENT.

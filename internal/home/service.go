@@ -471,7 +471,6 @@ ConditionFileIsExecutable={{.Path|cmdEscape}}
 [Service]
 StartLimitInterval=5
 StartLimitBurst=10
-ExecStartPre=/bin/mkdir -p /var/log/
 ExecStart={{.Path|cmdEscape}}{{range .Arguments}} {{.|cmd}}{{end}}
 {{if .ChRoot}}RootDirectory={{.ChRoot|cmd}}{{end}}
 {{if .WorkingDirectory}}WorkingDirectory={{.WorkingDirectory|cmdEscape}}{{end}}
@@ -479,8 +478,8 @@ ExecStart={{.Path|cmdEscape}}{{range .Arguments}} {{.|cmd}}{{end}}
 {{if .ReloadSignal}}ExecReload=/bin/kill -{{.ReloadSignal}} "$MAINPID"{{end}}
 {{if .PIDFile}}PIDFile={{.PIDFile|cmd}}{{end}}
 {{if and .LogOutput .HasOutputFileSupport -}}
-StandardOutput=file:/var/log/{{.Name}}.out
-StandardError=file:/var/log/{{.Name}}.err
+StandardOutput=journal
+StandardError=journal
 {{- end}}
 {{if gt .LimitNOFILE -1 }}LimitNOFILE={{.LimitNOFILE}}{{end}}
 {{if .Restart}}Restart={{.Restart}}{{end}}
