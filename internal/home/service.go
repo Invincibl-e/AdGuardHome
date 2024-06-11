@@ -460,8 +460,9 @@ var launchdConfig = `<?xml version='1.0' encoding='UTF-8'?>
 //  1. The RestartSec setting is set to a lower value of 10 to make sure we
 //     always restart quickly.
 //
-//  2. The ExecStartPre setting is added to make sure that the log directory is
-//     always created to prevent the 209/STDOUT errors.
+//  2. The StandardOutput and StandardError settings are set to redirect the
+//     output to the systemd journal, see
+//     https://man7.org/linux/man-pages/man5/systemd.exec.5.html#LOGGING_AND_STANDARD_INPUT/OUTPUT.
 const systemdScript = `[Unit]
 Description={{.Description}}
 ConditionFileIsExecutable={{.Path|cmdEscape}}
