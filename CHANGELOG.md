@@ -34,11 +34,12 @@ NOTE: Add new changes BELOW THIS COMMENT.
   also doesn't create the `/var/log/` directory anymore ([#7053]).
 
   **NOTE:** With an installed service for changes to take effect, you need to
-  reinstall the service using `-r` flag of the [install script] or via the CLI:
+  reinstall the service using `-r` flag of the [install script][install-script]
+  or via the CLI (with root privileges):
 
   ```sh
-  # ./AdGuardHome -s uninstall
-  # ./AdGuardHome -s install
+  ./AdGuardHome -s uninstall
+  ./AdGuardHome -s install
   ```
 
   Don't forget to backup your configuration file and other important data before
@@ -49,7 +50,8 @@ NOTE: Add new changes BELOW THIS COMMENT.
 - Node 18 support, Node 20 will be required in future releases.
 
 [#7053]: https://github.com/AdguardTeam/AdGuardHome/issues/7053
-[install script]: https://github.com/AdguardTeam/AdGuardHome/?tab=readme-ov-file#automated-install-linux-and-mac
+
+[install-script]: https://github.com/AdguardTeam/AdGuardHome/?tab=readme-ov-file#automated-install-linux-and-mac
 
 <!--
 NOTE: Add new changes ABOVE THIS COMMENT.
