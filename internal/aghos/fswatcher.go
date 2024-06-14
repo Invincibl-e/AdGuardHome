@@ -160,3 +160,30 @@ func (w *osWatcher) handleErrors() {
 		log.Error("%s: %s", osWatcherPref, err)
 	}
 }
+
+// EmptyFSWatcher is a no-op implementation of the [FSWatcher] interface.  It
+// may be used on systems not supporting filesystem events.
+type EmptyFSWatcher struct{}
+
+// type check
+var _ FSWatcher = EmptyFSWatcher{}
+
+// Start implements the [FSWatcher] interface for EmptyFSWatcher.
+func (EmptyFSWatcher) Start() (err error) {
+	return nil
+}
+
+// Close implements the [FSWatcher] interface for EmptyFSWatcher.
+func (EmptyFSWatcher) Close() (err error) {
+	return nil
+}
+
+// Events implements the [FSWatcher] interface for EmptyFSWatcher.
+func (EmptyFSWatcher) Events() (e <-chan event) {
+	return nil
+}
+
+// Add implements the [FSWatcher] interface for EmptyFSWatcher.
+func (EmptyFSWatcher) Add(_ string) (err error) {
+	return nil
+}

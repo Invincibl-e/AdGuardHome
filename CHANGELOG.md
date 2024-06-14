@@ -35,6 +35,11 @@ NOTE: Add new changes BELOW THIS COMMENT.
 
 - Node 18 support, Node 20 will be required in future releases.
 
+### Fixed
+
+- Tracking `/etc/hosts` file changes causing panics within particular
+  filesystems on start ([#7076]).
+
 <!--
 NOTE: Add new changes ABOVE THIS COMMENT.
 -->
