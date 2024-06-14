@@ -168,22 +168,26 @@ type EmptyFSWatcher struct{}
 // type check
 var _ FSWatcher = EmptyFSWatcher{}
 
-// Start implements the [FSWatcher] interface for EmptyFSWatcher.
+// Start implements the [FSWatcher] interface for EmptyFSWatcher.  It always
+// returns nil error.
 func (EmptyFSWatcher) Start() (err error) {
 	return nil
 }
 
-// Close implements the [FSWatcher] interface for EmptyFSWatcher.
+// Close implements the [FSWatcher] interface for EmptyFSWatcher.  It always
+// returns nil error.
 func (EmptyFSWatcher) Close() (err error) {
 	return nil
 }
 
-// Events implements the [FSWatcher] interface for EmptyFSWatcher.
+// Events implements the [FSWatcher] interface for EmptyFSWatcher.  It always
+// returns nil channel.
 func (EmptyFSWatcher) Events() (e <-chan event) {
 	return nil
 }
 
-// Add implements the [FSWatcher] interface for EmptyFSWatcher.
+// Add implements the [FSWatcher] interface for EmptyFSWatcher.  It always
+// returns nil error.
 func (EmptyFSWatcher) Add(_ string) (err error) {
 	return nil
 }
